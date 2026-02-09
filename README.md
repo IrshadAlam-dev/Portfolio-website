@@ -151,16 +151,6 @@ Website performs smoothly on all major screen sizes
 
 Accessibility and usability meet modern web standards
 
-🚫 Non-Goals (Out of Scope)
-
-Backend or database integration
-
-CMS implementation
-
-Heavy animation libraries
-
-Authentication or user accounts
-
 📂 Tech Stack
 
 HTML5

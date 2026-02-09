@@ -1,4 +1,4 @@
-# 🌐 Irshad Alam — Portfolio Website
+# Irshad Alam — Portfolio Website
 
 Welcome! This contains my **personal portfolio website**, built to showcase my skills, projects, and experience as a **Full-Stack Java Developer** and **Computer Science graduate student**.
 
@@ -58,7 +58,7 @@ Each project includes:
 ## 📫 Contact Me
 
 - 🌐 Portfolio: https://irshadalam-dev.github.io/Portfolio-website/
-- 💼 LinkedIn: https://www.linkedin.com/in/irshad-alam
+- 💼 LinkedIn: www.linkedin.com/in/irshad-alam00
 - 📧 Email: ialam@uab.edu or irshadalam7779@gmail.com
 
 ---

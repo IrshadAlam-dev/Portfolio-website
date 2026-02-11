@@ -38,7 +38,8 @@ My portfolio highlights the projects I’ve worked on, the technologies I use, a
 ## 🛠️ Tech Stack
 
 - HTML5  
-- CSS3  
+- CSS3
+- Bootstrap  
 - JavaScript (ES6+)  
 - GitHub Pages (Deployment)
 

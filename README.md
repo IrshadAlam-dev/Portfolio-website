@@ -49,9 +49,9 @@ My portfolio highlights the projects I’ve worked on, the technologies I use, a
 
 Each project includes:
 - Project overview and purpose  
-- Tech stack used  
-- Key features  
-- What I learned while building it  
+- Tech stack used
+- Key features
+- What I learned while building it
 - Links to **Live Demo** and **GitHub Repository**
 
 ---

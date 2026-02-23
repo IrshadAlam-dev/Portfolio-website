@@ -56,14 +56,6 @@ Each project includes:
 
 ---
 
-## 📫 Contact Me
-
-- 🌐 Portfolio: https://irshadalam-dev.github.io/Portfolio-website/
-- 💼 LinkedIn: www.linkedin.com/in/irshad-alam00
-- 📧 Email: ialam@uab.edu or irshadalam7779@gmail.com
-
----
-
 ## ⭐ Feedback
 
 If you have suggestions or feedback, feel free to open an issue or reach out.  
@@ -73,3 +65,11 @@ I’m always open to learning and improving.
 
 ### Thanks for stopping by! 😊  
 If you’re a recruiter or collaborator, I’d love to connect.
+
+---
+
+## 📫 Contact Me
+
+- 🌐 Portfolio: https://irshadalam-dev.github.io/Portfolio-website/
+- 💼 LinkedIn: www.linkedin.com/in/irshad-alam00
+- 📧 Email: ialam@uab.edu or irshadalam7779@gmail.com

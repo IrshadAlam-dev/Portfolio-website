@@ -17,7 +17,7 @@ My portfolio highlights the projects I’ve worked on, the technologies I use, a
 ## ✨ What You’ll Find Here
 
 - A clear introduction of who I am and what I do
-- A featured timeline covering graduate study, full-stack training, internship experience, and research
+- A featured timeline covering study, training, experience and research.
 - A curated list of **projects with detailed explanations**
 - Tech stacks used across frontend and backend
 - Live demos and GitHub repositories

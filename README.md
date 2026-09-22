@@ -50,11 +50,7 @@ My portfolio highlights the projects I’ve worked on, the technologies I use, a
 
 Featured projects include:
 
-- **ClipQuiz** — a no-code AI tool that turns YouTube videos into personalized quizzes.
-- **SparkLink** — a React, Supabase, and Tailwind CSS link-in-bio builder.
-- **Theatre Management System** — a Java and Spring Boot application for show and booking management.
-
-Where available, projects link directly to their GitHub repository and live demo.
+projects link directly to their GitHub repository and live demo.
 
 Each featured project also includes an in-page case study covering the challenge, approach, technology stack, and outcome.
 

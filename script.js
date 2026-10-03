@@ -102,6 +102,15 @@ const projects = {
     stack: 'Java, Spring Boot, Hibernate, MySQL, REST APIs',
     outcome: 'Demonstrates entity relationships, CRUD APIs, and database-backed booking workflows.',
     link: 'https://github.com/IrshadAlam-dev/theatre-management-system'
+  },
+  assistant: {
+    category: 'Python desktop application',
+    title: 'Python Virtual Assistant',
+    challenge: 'Everyday tasks, notes, reminders, and quick information lookups are often split across separate tools.',
+    solution: 'Built a Python assistant with typed commands, local task and reminder persistence, notes, weather and news lookups, plus a Tkinter dashboard and optional voice input/output.',
+    stack: 'Python, Tkinter, JSON, SpeechRecognition, pyttsx3',
+    outcome: 'Core local task and note workflows work without API keys, with optional voice and network-powered lookups.',
+    link: 'https://github.com/IrshadAlam-dev/python-virtual-assistant'
   }
 };
 
@@ -160,6 +169,18 @@ contactForm.addEventListener('submit', async (event) => {
 });
 
 const backToTop = document.getElementById('back-to-top');
+
+const copyEmailButton = document.querySelector('[data-copy-email]');
+const emailCopyStatus = document.getElementById('email-copy-status');
+
+copyEmailButton.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(copyEmailButton.dataset.copyEmail);
+    emailCopyStatus.textContent = 'Email address copied to clipboard.';
+  } catch {
+    emailCopyStatus.textContent = 'Copy unavailable here. Select the email address above to copy it.';
+  }
+});
 
 window.addEventListener('scroll', () => {
   backToTop.classList.toggle('is-visible', window.scrollY > 500);

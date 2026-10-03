@@ -440,12 +440,45 @@ nav ul li a:hover::after {
     transition: transform 0.3s ease-in-out;
   }
   
-  .work img {
+.work img {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Ensures image scales properly */
     border-radius: 10px;
   }
+
+.assistant-art {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-content: center;
+    justify-items: center;
+    gap: 0.8rem;
+    background: radial-gradient(circle at 70% 25%, rgba(255, 61, 127, 0.3), transparent 35%), linear-gradient(140deg, #171923, #27283a 58%, #15161c);
+}
+
+.assistant-art-orb {
+    display: grid;
+    width: 4rem;
+    height: 4rem;
+    place-items: center;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: 1.1rem;
+    background: rgba(255, 255, 255, 0.08);
+    color: #ff7da5;
+    font-size: 1.7rem;
+}
+
+.assistant-art-label {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.65rem;
+    letter-spacing: 0.16em;
+}
+
+.assistant-art-command {
+    color: #fff;
+    font: 600 0.88rem/1.4 ui-monospace, SFMono-Regular, Menlo, monospace;
+}
   
   .layer {
     position: absolute;
@@ -828,6 +861,23 @@ nav ul li a {
     color: var(--text-muted);
 }
 
+.timeline-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: 0.75rem;
+    color: var(--accent);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.timeline-link:hover,
+.timeline-link:focus-visible {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+}
+
 .case-study-button {
     border: 1px solid rgba(255, 255, 255, 0.72);
     border-radius: 0.4rem;
@@ -1079,6 +1129,36 @@ nav ul li a {
     color: var(--accent);
     font-size: 1.1rem !important;
     text-align: center;
+}
+
+.contact-email-row {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.25rem 0.85rem;
+}
+
+.copy-email {
+    padding: 0.35rem 0.55rem;
+    border: 1px solid var(--border);
+    border-radius: 0.35rem;
+    background: transparent;
+    color: var(--text-muted);
+    font-size: 0.82rem;
+    cursor: pointer;
+}
+
+.copy-email:hover,
+.copy-email:focus-visible {
+    border-color: var(--accent);
+    color: #fff;
+}
+
+.email-copy-status {
+    min-height: 1.2rem;
+    margin: 0.25rem 0 0 2.15rem;
+    color: var(--text-muted);
+    font-size: 0.82rem;
 }
 
 .contact-right {

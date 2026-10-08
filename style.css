@@ -1001,6 +1001,11 @@ nav ul li a {
     color: var(--text-muted);
 }
 
+.about-interest {
+    margin-top: 0.85rem;
+    color: var(--text);
+}
+
 .sub-title {
     color: #fff;
     font-size: clamp(2rem, 4vw, 3rem);

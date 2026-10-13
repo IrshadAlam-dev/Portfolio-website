@@ -7,19 +7,23 @@
   <title>Irshad Alam | Full-Stack Java Developer</title>
   <meta name="description" content="Portfolio of Irshad Alam, a full-stack Java developer building scalable, user-focused web applications." />
   <meta name="author" content="Irshad Alam" />
+  <meta name="theme-color" content="#0c1017" />
   <meta property="og:title" content="Irshad Alam | Full-Stack Java Developer" />
   <meta property="og:description" content="Explore Irshad Alam's projects, technical skills, and experience in full-stack web development." />
   <meta property="og:type" content="website" />
+  <link rel="preload" href="images/background.png%20(2).jpg" as="image" />
   <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="css/all.css" />
 </head>
 
 <body>
-  <!------------------------------------------------ header and navbar---------------------------------------->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <!-- Header and navigation -->
   <div id="header">
     <div class="container">
-      <nav>
-        <img src="images/irshad_phtot.jpg" alt="Portrait of Irshad Alam" class="logo" />
+      <nav aria-label="Main navigation">
+        <a class="brand" href="#header" aria-label="Irshad Alam, home">IA<span>.</span></a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="sidemenu" aria-expanded="false"><i class="fas fa-bars" aria-hidden="true"></i></button>
         <ul id="sidemenu">
           <li><a href="#header">Home</a></li>
           <li><a href="#about">About</a></li>
@@ -27,21 +31,21 @@
           <li><a href="#services">Services</a></li>
           <li><a href="#portfolio">Portfolio</a></li>
           <li><a href="#contact">Contact</a></li>
-          <li><button class="menu-close" type="button" aria-label="Close navigation menu"><i class="fas fa-times" aria-hidden="true"></i></button></li>
+          <li class="menu-close-item"><button class="menu-close" type="button" aria-label="Close navigation menu"><i class="fas fa-times" aria-hidden="true"></i></button></li>
         </ul>
-        <button class="menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="sidemenu" aria-expanded="false"><i class="fas fa-bars" aria-hidden="true"></i></button>
       </nav>
+      <div class="menu-backdrop" aria-hidden="true"></div>
 
       <div class="header-text">
         <p class="hero-kicker">Full-stack Java developer</p>
-        <h2>
+        <h1>
           I build <span>reliable software</span><br />
           for people and businesses.
-        </h2>
+        </h1>
         <p class="hero-summary">I’m Irshad Alam—a software engineer focused on scalable web applications, thoughtful interfaces, and practical AI tools.</p>
         <div class="hero-actions">
           <a href="#portfolio" class="btn">Explore projects <i class="fas fa-arrow-down" aria-hidden="true"></i></a>
-          <a href="images/IRSHAD_RESUME_UPDATED.pdf" class="btn btn-secondary">View résumé</a>
+          <a href="images/IRSHAD_RESUME_UPDATED.pdf" class="btn btn-secondary" target="_blank" rel="noopener">View résumé</a>
         </div>
         <p class="availability"><span aria-hidden="true"></span> Open to software engineering and full-stack development opportunities</p>
         <ul class="hero-stack" aria-label="Core technologies">
@@ -53,15 +57,16 @@
       </div>
     </div>
   </div>
-  <!------------------------------------------------about---------------------------------------->
-  <div id="about">
+  <!-- About -->
+  <main id="main-content">
+  <section id="about">
     <div class="container">
       <div class="row">
         <div class="about-col-1">
-          <img src="images/irshad_phtot.jpg" alt="Portrait of Irshad Alam" />
+          <img src="images/irshad-portrait.webp" alt="Irshad Alam" loading="lazy" decoding="async" width="900" height="1200" />
         </div>
         <div class="about-col-2">
-          <h1 class="sub-title">About Me</h1>
+          <h2 class="sub-title">About me</h2>
           <p>
             As a driven and versatile software engineer, I am passionate about exploring emerging technologies and
             delivering innovative solutions. With a strong foundation in full-stack development, problem-solving, and
@@ -71,12 +76,12 @@
           <p class="about-interest">Outside of software, I enjoy playing guitar.</p>
 
           <div class="tab-titles" role="tablist" aria-label="About Irshad">
-            <button class="tab-links active-link" id="skills-tab" type="button" role="tab" aria-selected="true" aria-controls="skills" data-tab="skills">Skills</button>
-            <button class="tab-links" id="experience-tab" type="button" role="tab" aria-selected="false" aria-controls="experience" data-tab="experience">Experience</button>
-            <button class="tab-links" id="education-tab" type="button" role="tab" aria-selected="false" aria-controls="education" data-tab="education">Education</button>
+            <button class="tab-links active-link" id="skills-tab" type="button" role="tab" aria-selected="true" aria-controls="skills-panel" data-tab="skills-panel">Skills</button>
+            <button class="tab-links" id="experience-tab" type="button" role="tab" aria-selected="false" aria-controls="experience-panel" data-tab="experience-panel" tabindex="-1">Experience</button>
+            <button class="tab-links" id="education-tab" type="button" role="tab" aria-selected="false" aria-controls="education-panel" data-tab="education-panel" tabindex="-1">Education</button>
           </div>
 
-          <div class="tab-contents active-tab" id="skills" role="tabpanel" aria-labelledby="skills-tab">
+          <div class="tab-contents active-tab" id="skills-panel" role="tabpanel" aria-labelledby="skills-tab" tabindex="0">
             <ul>
               <li>
                 <span>Front-End</span><br />HTML, CSS, JavaScript, Bootstrap,
@@ -91,17 +96,17 @@
                 JPA
               </li>
               <li>
-                <span>Development Tools & IDEs</span><br />VS Code, IntelliJ,
+                <span>Development Tools &amp; IDEs</span><br />VS Code, IntelliJ,
                 Maven, Git/GitHub, Eclipse IDE
               </li>
               <li>
-                <span>Additional Skills</span><br />Python, WordPress, Core Java & Object-Oriented
-                Programming, Data Structures & Collection framework,
+                <span>Additional Skills</span><br />Python, WordPress, Core Java &amp; Object-Oriented
+                Programming, Data Structures &amp; Collection framework,
                 Hibernate, Problem Solving, Logic Building and Communication
               </li>
             </ul>
           </div>
-          <div class="tab-contents" id="experience" role="tabpanel" aria-labelledby="experience-tab" hidden>
+          <div class="tab-contents" id="experience-panel" role="tabpanel" aria-labelledby="experience-tab" tabindex="0" hidden>
             <ul>
               <li>
                 <span>Sep 2023 – Dec 2023</span><br />
@@ -113,7 +118,7 @@
               </li>
             </ul>
           </div>
-          <div class="tab-contents" id="education" role="tabpanel" aria-labelledby="education-tab" hidden>
+          <div class="tab-contents" id="education-panel" role="tabpanel" aria-labelledby="education-tab" tabindex="0" hidden>
             <ul>
               <li>
                 <span>Jan 2025 - Dec 2026</span><br />
@@ -150,7 +155,7 @@
         </div>
       </div>
     </div>
-  </div>
+  </section>
 
   <section id="experience" class="experience-section">
     <div class="container">
@@ -194,105 +199,102 @@
     </div>
   </section>
 
-  <!----------------------------------------------services----------------------------------------->
-  <div id="services">
+  <!-- Services -->
+  <section id="services">
     <div class="container">
-      <h1 class="sub-title sub-title2">My Services</h1>
+      <p class="section-kicker">What I build</p>
+      <h2 class="sub-title">Services</h2>
       <div class="services-list">
         <!-- Web Application Development -->
         <div>
-          <i class="fas fa-code"></i>
-          <h2>Web Application Development</h2>
+          <i class="fas fa-code" aria-hidden="true"></i>
+          <h3>Web Application Development</h3>
           <p>
             I specialize in creating dynamic, interactive web applications using Java frameworks like Spring Boot and
             front-end technologies such as React.js. With a focus on performance, security, and user experience, I help
             businesses build scalable applications that meet their unique requirements.
           </p>
-          <!-- <a href="#contact" class="contact-btn">Inquire</a> -->
         </div>
 
         <!-- API Development & Integration -->
         <div>
-          <i class="fas fa-cogs"></i>
-          <h2>API Development & Integration</h2>
+          <i class="fas fa-cogs" aria-hidden="true"></i>
+          <h3>API Development &amp; Integration</h3>
           <p>
             I develop secure, scalable RESTful APIs using Java and ensure seamless integration with third-party
             services. Whether it's data sharing or system synchronization, I make it easy for your software to
             communicate with other platforms.
           </p>
-          <!-- <a href="#contact" class="contact-btn">Inquire</a> -->
         </div>
 
         <!-- Database Design & Management -->
         <div>
-          <i class="fas fa-database"></i>
-          <h2>Database Design & Management</h2>
+          <i class="fas fa-database" aria-hidden="true"></i>
+          <h3>Database Design &amp; Management</h3>
           <p>
             With expertise in MySQL, Oracle DB, and JPA, I design and manage databases that are optimized for
             performance, scalability, and security. Whether you're looking for database migration, schema design, or
             optimization, I provide solutions that ensure your data is always accessible and secure.
           </p>
-          <!-- <a href="#contact" class="contact-btn">Inquire</a> -->
         </div>
 
         <!-- UI/UX Design -->
         <div>
-          <i class="fas fa-paint-brush"></i>
-          <h2>UI/UX Designing & Development </h2>
+          <i class="fas fa-paint-brush" aria-hidden="true"></i>
+          <h3>UI/UX Designing &amp; Development</h3>
           <p>
             I design aesthetically pleasing, user-centric interfaces that enhance the user experience. From wireframes
             to prototypes, I focus on creating intuitive, accessible designs that align with your brand’s vision.
           </p>
-          <!-- <a href="#contact" class="contact-btn">Inquire</a> -->
         </div>
 
         <!-- WordPress Development -->
         <div>
-          <i class="fab fa-wordpress"></i>
-          <h2>WordPress Development</h2>
+          <i class="fab fa-wordpress" aria-hidden="true"></i>
+          <h3>WordPress Development</h3>
           <p>
             I offer WordPress website development services, including theme customization, plugin development, and
             full-stack solutions for blogs, e-commerce, and corporate websites. Let me help you build a responsive and
             feature-rich WordPress site.
           </p>
-          <!-- <a href="#contact" class="contact-btn">Inquire</a> -->
         </div>
 
         <!-- Java-based Application Development -->
         <div>
-          <i class="fas fa-laptop-code"></i>
-          <h2>Java-based Application Development</h2>
+          <i class="fas fa-laptop-code" aria-hidden="true"></i>
+          <h3>Java-based Application Development</h3>
           <p>
             I develop robust Java-based applications using frameworks like Spring, Hibernate, and Java EE. Whether it's
             an enterprise system, desktop application, or server-side software, I ensure scalability, reliability, and
             high performance.
           </p>
-          <!-- <a href="#contact" class="contact-btn">Inquire</a> -->
         </div>
 
       </div>
     </div>
-  </div>
+  </section>
 
-  <!---------------------------- Portfolio Section ------------------->
-  <div id="portfolio">
+  <!-- Projects -->
+  <section id="portfolio">
     <div class="container">
-      <h1 class="sub-title sub-title2">My Work</h1>
-  
+      <p class="section-kicker">Selected work</p>
+      <h2 class="sub-title">Projects</h2>
+
       <!-- Filter Buttons -->
-      <div class="filters">
+      <div class="filters" role="group" aria-label="Filter projects">
         <button class="filter-btn active" type="button" data-filter="all" aria-pressed="true">All</button>
         <button class="filter-btn" type="button" data-filter="web" aria-pressed="false">Web</button>
         <button class="filter-btn" type="button" data-filter="fullstack" aria-pressed="false">Full Stack</button>
         <button class="filter-btn" type="button" data-filter="ai" aria-pressed="false">AI</button>
         <button class="filter-btn" type="button" data-filter="desktop" aria-pressed="false">Desktop</button>
       </div>
-  
+
       <!-- Work List -->
+      <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
       <div class="work-list">
         <!-- ClipQuiz -->
-        <div class="work" data-category="ai">
-          <img src="images/ai-generator.avif" alt="Abstract illustration representing a virtual assistant" loading="lazy" />
+        <article class="work" data-category="ai">
+          <img src="images/ai-generator.avif" alt="Abstract AI-themed project artwork" loading="lazy" decoding="async" />
           <div class="layer">
             <h3>ClipQuiz</h3>
             <p>Turns YouTube videos into personalized quizzes with smart feedback and rewatch guidance.</p>
@@ -303,11 +305,11 @@
               <button class="case-study-button" type="button" data-project="clipquiz">Case study</button>
             </div>
           </div>
-        </div>
+        </article>
 
         <!-- SparkLink -->
-        <div class="work" data-category="web">
-          <img src="images/ecommerce.avif" alt="SparkLink link-in-bio builder project preview" loading="lazy" />
+        <article class="work" data-category="web">
+          <img src="images/ecommerce.avif" alt="Abstract web application artwork" loading="lazy" decoding="async" />
           <div class="layer">
             <h3>SparkLink</h3>
             <p>A link-in-bio builder with magic-link access, drag-and-drop editing, and glassmorphism themes.</p>
@@ -318,11 +320,11 @@
               <button class="case-study-button" type="button" data-project="sparklink">Case study</button>
             </div>
           </div>
-        </div>
+        </article>
 
         <!-- Theatre Management System -->
-        <div class="work" data-category="fullstack">
-          <img src="images/theatre.avif" alt="Theatre Management System project preview" loading="lazy" />
+        <article class="work" data-category="fullstack">
+          <img src="images/theatre.avif" alt="Theatre-themed project artwork" loading="lazy" decoding="async" />
           <div class="layer">
             <h3>Theatre Management System</h3>
             <p>A Java and Spring Boot theatre-booking app for browsing shows, reserving seats, and managing bookings.</p>
@@ -332,10 +334,10 @@
               <button class="case-study-button" type="button" data-project="theatre">Case study</button>
             </div>
           </div>
-        </div>
+        </article>
 
         <!-- Python Virtual Assistant -->
-        <div class="work work-python" data-category="desktop">
+        <article class="work work-python" data-category="desktop">
           <div class="assistant-art" aria-hidden="true">
             <span class="assistant-art-orb"><i class="fas fa-terminal"></i></span>
             <span class="assistant-art-label">PYTHON · PERSONAL ASSISTANT</span>
@@ -350,10 +352,10 @@
               <button class="case-study-button" type="button" data-project="assistant">Case study</button>
             </div>
           </div>
-        </div>
+        </article>
       </div>
     </div>
-  </div>
+  </section>
 
   <dialog class="project-modal" id="project-modal" aria-labelledby="modal-title">
     <div class="modal-header">
@@ -382,13 +384,13 @@
     <a id="modal-link" class="btn" target="_blank" rel="noopener noreferrer">View project <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
   </dialog>
 
-  <!--------------------------------contact---------------------------->
-  <div id="contact">
+  <!-- Contact -->
+  <section id="contact">
     <div class="container">
       <div class="row">
         <div class="contact-left">
           <p class="section-kicker">Let’s connect</p>
-          <h1 class="sub-title">Have a project, role, or collaboration in mind?</h1>
+          <h2 class="sub-title">Have a project, role, or collaboration in mind?</h2>
           <p class="contact-intro">I’d be happy to connect. I’m open to full-stack software engineering opportunities and collaborative projects.</p>
           <div class="contact-email-row">
             <p class="contact-detail"><i class="fas fa-paper-plane" aria-hidden="true"></i> <a href="mailto:irshadalam7779@gmail.com">irshadalam7779@gmail.com</a></p>
@@ -401,10 +403,10 @@
             <a href="https://github.com/IrshadAlam-dev" target="_blank" rel="noopener noreferrer" aria-label="Irshad Alam on GitHub"><i class="fab fa-github" aria-hidden="true"></i></a>
             <a href="https://www.linkedin.com/in/irshad-alam00" target="_blank" rel="noopener noreferrer" aria-label="Irshad Alam on LinkedIn"><i class="fab fa-linkedin" aria-hidden="true"></i></a>
           </div>
-          <a href="images/IRSHAD_RESUME_UPDATED.pdf" class="btn btn2">View Résumé</a>
+          <a href="images/IRSHAD_RESUME_UPDATED.pdf" class="btn btn2" download="Irshad-Alam-Resume.pdf">Download résumé</a>
         </div>
         <div class="contact-right">
-          <p class="form-heading">Send a message</p>
+          <h3 class="form-heading">Send a message</h3>
           <p class="form-copy">Tell me a little about what you’re looking to build or discuss.</p>
           <form id="contact-form" action="https://formspree.io/f/moveqkkg" method="POST">
             <label class="sr-only" for="name">Your name</label>
@@ -419,13 +421,9 @@
         </div>
       </div>
     </div>
-    <div class="copyright">
-      <p>
-        Copyright <i class="fas fa-copyright"></i> Irshad.Made with
-        <i class="fas fa-heart"></i> by Irshad Alam
-      </p>
-    </div>
-  </div>
+  </section>
+  </main>
+  <footer class="copyright"><p>© <span id="copyright-year">2026</span> Irshad Alam. Built with care.</p></footer>
 
   <button id="back-to-top" class="back-to-top" type="button" aria-label="Back to top">
     <i class="fas fa-arrow-up" aria-hidden="true"></i>

@@ -44,6 +44,22 @@ My portfolio highlights the projects I’ve worked on, the technologies I use, a
 - Font Awesome
 - GitHub Pages (Deployment)
 
+## Preview locally
+
+This is a static site with no build or package-install step. From the repository directory, run:
+
+```sh
+python3 -m http.server 8765
+```
+
+Open `http://localhost:8765/`. A local server is preferable to opening `index.html` with a `file://` URL, particularly when testing the contact form and browser behavior.
+
+## Deploy
+
+Changes pushed to the `main` branch trigger `.github/workflows/static.yml`, which publishes the repository to GitHub Pages. The same workflow can be started manually from the GitHub Actions tab. Verify the deployed site at the live URL above after the workflow succeeds.
+
+The contact form sends messages through Formspree; test it with a real submission only when you are ready to send a message to that service. The résumé can be viewed from the hero or downloaded from Contact.
+
 ---
 
 ## 🚀 Projects Section Highlights

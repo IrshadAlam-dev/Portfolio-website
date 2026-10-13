@@ -1,79 +1,95 @@
-const tabLinks = document.querySelectorAll('.tab-links');
-const tabContents = document.querySelectorAll('.tab-contents');
-const sideMenu = document.getElementById('sidemenu');
-const menuToggle = document.querySelector('.menu-toggle');
-const menuClose = document.querySelector('.menu-close');
+const tabs = [...document.querySelectorAll('[role="tab"]')];
+const panels = [...document.querySelectorAll('[role="tabpanel"]')];
 
-function closeMenu() {
-  sideMenu.classList.remove('is-open');
-  menuToggle.setAttribute('aria-expanded', 'false');
+function activateTab(tab, moveFocus = false) {
+  tabs.forEach((item) => {
+    const active = item === tab;
+    item.setAttribute('aria-selected', String(active));
+    item.tabIndex = active ? 0 : -1;
+    item.classList.toggle('active-link', active);
+  });
+  panels.forEach((panel) => {
+    const active = panel.id === tab.dataset.tab;
+    panel.hidden = !active;
+    panel.classList.toggle('active-tab', active);
+  });
+  if (moveFocus) tab.focus();
 }
 
-tabLinks.forEach((tab) => {
-  tab.addEventListener('click', () => {
-    const tabName = tab.dataset.tab;
-
-    tabLinks.forEach((item) => {
-      item.classList.remove('active-link');
-      item.setAttribute('aria-selected', 'false');
-    });
-    tabContents.forEach((content) => {
-      content.classList.remove('active-tab');
-      content.hidden = true;
-    });
-
-    tab.classList.add('active-link');
-    tab.setAttribute('aria-selected', 'true');
-    const activeContent = document.getElementById(tabName);
-    activeContent.classList.add('active-tab');
-    activeContent.hidden = false;
+tabs.forEach((tab, index) => {
+  tab.addEventListener('click', () => activateTab(tab));
+  tab.addEventListener('keydown', (event) => {
+    let next = index;
+    if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+    else if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+    else if (event.key === 'Home') next = 0;
+    else if (event.key === 'End') next = tabs.length - 1;
+    else return;
+    event.preventDefault();
+    activateTab(tabs[next], true);
   });
 });
 
-menuToggle.addEventListener('click', () => {
-  sideMenu.classList.add('is-open');
-  menuToggle.setAttribute('aria-expanded', 'true');
+const sideMenu = document.getElementById('sidemenu');
+const menuToggle = document.querySelector('.menu-toggle');
+const menuClose = document.querySelector('.menu-close');
+const menuBackdrop = document.querySelector('.menu-backdrop');
+const mobileMenu = window.matchMedia('(max-width: 900px)');
+
+function setMenuOpen(open, restoreFocus = false) {
+  sideMenu.classList.toggle('is-open', open);
+  menuBackdrop.classList.toggle('is-open', open);
+  menuToggle.setAttribute('aria-expanded', String(open));
+  sideMenu.inert = mobileMenu.matches && !open;
+  menuBackdrop.inert = !open;
+  document.body.classList.toggle('menu-open', open);
+  if (open) {
+    // Move focus after the click's default focus behavior completes.
+    setTimeout(() => menuClose.focus(), 0);
+  }
+  else if (restoreFocus) menuToggle.focus();
+}
+
+function syncMenu() {
+  setMenuOpen(false);
+  sideMenu.inert = mobileMenu.matches;
+}
+
+syncMenu();
+mobileMenu.addEventListener('change', syncMenu);
+menuToggle.addEventListener('click', () => setMenuOpen(true));
+menuClose.addEventListener('click', () => setMenuOpen(false, true));
+menuBackdrop.addEventListener('click', () => setMenuOpen(false, true));
+sideMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
+document.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape' && sideMenu.classList.contains('is-open')) setMenuOpen(false, true);
 });
-menuClose.addEventListener('click', closeMenu);
-sideMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', closeMenu));
 
-    // <!-- for work section functionality -->
+const works = [...document.querySelectorAll('.work')];
+const filterButtons = [...document.querySelectorAll('.filter-btn')];
+const filterStatus = document.getElementById('filter-status');
 
-const works = document.querySelectorAll('.work');
-      const filterButtons = document.querySelectorAll('.filter-btn');
-      let currentFilter = 'all';
+function showWorks(filter) {
+  let count = 0;
+  works.forEach((work) => {
+    const visible = filter === 'all' || work.dataset.category === filter;
+    work.hidden = !visible;
+    if (visible) count += 1;
+  });
+  filterStatus.textContent = `${count} project${count === 1 ? '' : 's'} shown.`;
+}
 
-      showWorks(currentFilter);
-  
-      // Event listener for filter buttons
-      filterButtons.forEach(button => {
-        button.addEventListener('click', () => {
-          // Set active filter
-          currentFilter = button.dataset.filter;
-          // Update active button style
-          filterButtons.forEach(btn => {
-            btn.classList.remove('active');
-            btn.setAttribute('aria-pressed', 'false');
-          });
-          button.classList.add('active');
-          button.setAttribute('aria-pressed', 'true');
-          // Show filtered works
-          showWorks(currentFilter);
-        });
-      });
-  
-      function showWorks(filter) {
-        let filteredWorks = Array.from(works).filter(work => {
-          return filter === 'all' || work.dataset.category === filter;
-        });
-  
-        // Hide all works first
-        works.forEach(work => work.style.display = 'none');
-  
-        filteredWorks.forEach((work) => {
-          work.style.display = 'block';
-        });
-      }
+filterButtons.forEach((button) => {
+  button.addEventListener('click', () => {
+    filterButtons.forEach((item) => {
+      const active = item === button;
+      item.classList.toggle('active', active);
+      item.setAttribute('aria-pressed', String(active));
+    });
+    showWorks(button.dataset.filter);
+  });
+});
+showWorks('all');
 
 const projects = {
   clipquiz: {
@@ -115,22 +131,19 @@ const projects = {
 };
 
 const projectModal = document.getElementById('project-modal');
-const modalClose = document.querySelector('.modal-close');
-
+const modalClose = projectModal.querySelector('.modal-close');
 document.querySelectorAll('.case-study-button').forEach((button) => {
   button.addEventListener('click', () => {
     const project = projects[button.dataset.project];
-    document.getElementById('modal-category').textContent = project.category;
-    document.getElementById('modal-title').textContent = project.title;
-    document.getElementById('modal-challenge').textContent = project.challenge;
-    document.getElementById('modal-solution').textContent = project.solution;
-    document.getElementById('modal-stack').textContent = project.stack;
-    document.getElementById('modal-outcome').textContent = project.outcome;
+    if (!project) return;
+    for (const field of ['category', 'title', 'challenge', 'solution', 'stack', 'outcome']) {
+      document.getElementById(`modal-${field}`).textContent = project[field];
+    }
     document.getElementById('modal-link').href = project.link;
     projectModal.showModal();
+    modalClose.focus();
   });
 });
-
 modalClose.addEventListener('click', () => projectModal.close());
 projectModal.addEventListener('click', (event) => {
   if (event.target === projectModal) projectModal.close();
@@ -139,23 +152,19 @@ projectModal.addEventListener('click', (event) => {
 const contactForm = document.getElementById('contact-form');
 const contactSubmit = document.getElementById('contact-submit');
 const formStatus = document.getElementById('form-status');
-
 contactForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   contactSubmit.disabled = true;
   contactSubmit.textContent = 'Sending…';
   formStatus.textContent = '';
   formStatus.className = 'form-status';
-
   try {
     const response = await fetch(contactForm.action, {
       method: 'POST',
       body: new FormData(contactForm),
       headers: { Accept: 'application/json' }
     });
-
     if (!response.ok) throw new Error('Message could not be sent.');
-
     contactForm.reset();
     formStatus.textContent = 'Thanks — your message has been sent.';
     formStatus.classList.add('is-success');
@@ -168,11 +177,8 @@ contactForm.addEventListener('submit', async (event) => {
   }
 });
 
-const backToTop = document.getElementById('back-to-top');
-
 const copyEmailButton = document.querySelector('[data-copy-email]');
 const emailCopyStatus = document.getElementById('email-copy-status');
-
 copyEmailButton.addEventListener('click', async () => {
   try {
     await navigator.clipboard.writeText(copyEmailButton.dataset.copyEmail);
@@ -182,10 +188,21 @@ copyEmailButton.addEventListener('click', async () => {
   }
 });
 
-window.addEventListener('scroll', () => {
+const backToTop = document.getElementById('back-to-top');
+let scrollTicking = false;
+function updateBackToTop() {
   backToTop.classList.toggle('is-visible', window.scrollY > 500);
+}
+window.addEventListener('scroll', () => {
+  if (scrollTicking) return;
+  scrollTicking = true;
+  requestAnimationFrame(() => {
+    updateBackToTop();
+    scrollTicking = false;
+  });
 }, { passive: true });
-
+updateBackToTop();
 backToTop.addEventListener('click', () => {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' });
 });
+document.getElementById('copyright-year').textContent = new Date().getFullYear();

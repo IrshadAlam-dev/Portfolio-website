@@ -1,6 +1,6 @@
 # Irshad Alam — Portfolio Website
 
-Welcome! This contains my **personal portfolio website**, built to showcase my skills, projects, and experience as a **Full-Stack Java Developer** and **Computer Science graduate student**.
+Welcome! This contains my **personal portfolio website**, built to showcase my skills, projects, and experience as a **Developer** and **Computer Science graduate student**.
 
 🔗 **Live Website:**
 👉 https://irshadalam-dev.github.io/Portfolio-website/
@@ -9,7 +9,7 @@ Welcome! This contains my **personal portfolio website**, built to showcase my s
 
 ## 👋 About Me
 
-I’m **Irshad Alam**, a Full-Stack Java Developer with a strong interest in building clean, scalable, and user-focused web applications.
+I’m **Irshad Alam**, a Full-Stack Developer with a strong interest in building clean, scalable, and user-focused web applications.
 My portfolio highlights the projects I’ve worked on, the technologies I use, and how I approach real-world problem solving.
 
 ---

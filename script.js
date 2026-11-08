@@ -76,7 +76,7 @@ function showWorks(filter) {
     work.hidden = !visible;
     if (visible) count += 1;
   });
-  filterStatus.textContent = `${count} project${count === 1 ? '' : 's'} shown.`;
+  filterStatus.textContent = `Showing ${count} project${count === 1 ? '' : 's'}.`;
 }
 
 filterButtons.forEach((button) => {
@@ -92,6 +92,51 @@ filterButtons.forEach((button) => {
 showWorks('all');
 
 const projects = {
+  syllabus: {
+    category: 'AI academic planning tool',
+    title: 'Syllabus SOS',
+    challenge: 'Course documents can scatter assignment requirements and deadlines across PDFs, screenshots, and syllabi.',
+    solution: 'Built a document-to-plan flow that extracts likely work, shows supporting references, and lets students review, edit, approve, or reject items before planning.',
+    stack: 'React, FastAPI, PyMuPDF, Meta Muse Spark',
+    outcome: 'Students can organize approved work in weekly and calendar views. Extracted dates still require human verification, especially for images.',
+    link: 'https://syllabus-sos.vercel.app/'
+  },
+  papertrail: {
+    category: 'Local-first document tool',
+    title: 'Papertrail PDF Q&A',
+    challenge: 'Finding a specific answer in a long PDF is slow, and generated answers can be difficult to verify.',
+    solution: 'Built a local PDF index with text extraction, OCR, document-scoped retrieval, and clickable page citations. An optional model can synthesize answers from retrieved passages.',
+    stack: 'Python, SQLite, Apple NaturalLanguage, Vision, PDFKit',
+    outcome: 'The app falls back to cited passages when no model is configured or a generated answer cannot be validated.',
+    link: null
+  },
+  sparoo: {
+    category: 'Full-stack auction application',
+    title: 'SPAROO Online Auction',
+    challenge: 'Timed auctions need coordinated listings, bids, wallet holds, winner selection, and administrator actions.',
+    solution: 'Rebuilt an auction concept as a React frontend and Django REST application with MongoDB-backed listings, bidding, demo-coin accounting, and admin workflows.',
+    stack: 'React, Tailwind CSS, Django REST Framework, MongoDB',
+    outcome: 'The repository documents local buyer and admin flows plus automated checks. This is a demo-coin system, not a real-money payment product.',
+    link: null
+  },
+  libaas: {
+    category: 'E-commerce prototype',
+    title: 'Alam Libaas',
+    challenge: 'A storefront needs catalog browsing, cart state, checkout validation, and basic order management.',
+    solution: 'Connected an HTML/CSS storefront to a Spring Boot backend with database-backed products, a session cart, cash-on-delivery checkout, and customer accounts.',
+    stack: 'Java, Spring Boot, Thymeleaf, Spring Security, H2',
+    outcome: 'The main catalog, cart, checkout, and authentication flows work locally. The project is an incomplete portfolio prototype, not a production store.',
+    link: null
+  },
+  faith: {
+    category: 'Local-first web application',
+    title: 'Faith & Reflection',
+    challenge: 'A personal record book should keep daily entries usable and recoverable without requiring an account.',
+    solution: 'Built browser-local records with date-based editing, summaries, search, CSV and JSON export, backup restore, and storage recovery controls alongside learning pages.',
+    stack: 'HTML, CSS, JavaScript, browser storage',
+    outcome: 'Records stay in the browser profile, with backup and recovery tools. They are not encrypted or synced across devices.',
+    link: null
+  },
   clipquiz: {
     category: 'AI learning tool',
     title: 'ClipQuiz',
@@ -132,6 +177,8 @@ const projects = {
 
 const projectModal = document.getElementById('project-modal');
 const modalClose = projectModal.querySelector('.modal-close');
+const modalLink = document.getElementById('modal-link');
+const modalNote = document.getElementById('modal-note');
 document.querySelectorAll('.case-study-button').forEach((button) => {
   button.addEventListener('click', () => {
     const project = projects[button.dataset.project];
@@ -139,7 +186,10 @@ document.querySelectorAll('.case-study-button').forEach((button) => {
     for (const field of ['category', 'title', 'challenge', 'solution', 'stack', 'outcome']) {
       document.getElementById(`modal-${field}`).textContent = project[field];
     }
-    document.getElementById('modal-link').href = project.link;
+    modalLink.hidden = !project.link;
+    modalNote.hidden = Boolean(project.link);
+    if (project.link) modalLink.href = project.link;
+    else modalLink.removeAttribute('href');
     projectModal.showModal();
     modalClose.focus();
   });

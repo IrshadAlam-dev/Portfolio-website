@@ -66,12 +66,18 @@ The contact form sends messages through Formspree; test it with a real submissio
 
 Featured projects include:
 
+- **Syllabus SOS** — a React and FastAPI study-planning tool with reviewable AI extraction and a live app.
+- **Papertrail PDF Q&A** — a local-first PDF question-answering tool with page citations (private repository).
+- **SPAROO Online Auction** — a React, Django REST, and MongoDB auction system using demo coins (private repository).
+- **Alam Libaas** — a Spring Boot clothing-store prototype (private repository).
+- **Faith & Reflection** — a browser-local learning and daily-record site (private repository).
 - **ClipQuiz** — a no-code AI tool that turns YouTube videos into personalized quizzes.
 - **SparkLink** — a React, Supabase, and Tailwind CSS link-in-bio builder.
 - **Theatre Management System** — a Java and Spring Boot application for show and booking management.
 - **Python Virtual Assistant** — a Python desktop assistant with local tasks, notes, reminders, a Tkinter dashboard, and optional voice input/output.
 
 Each featured project also includes an in-page case study covering the challenge, approach, technology stack, and outcome.
+Private projects are presented as summaries without links to their source code.
 
 ---
 

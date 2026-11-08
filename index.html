@@ -68,10 +68,9 @@
         <div class="about-col-2">
           <h2 class="sub-title">About me</h2>
           <p>
-            As a driven and versatile software engineer, I am passionate about exploring emerging technologies and
-            delivering innovative solutions. With a strong foundation in full-stack development, problem-solving, and
-            software design, I am eager to contribute to cutting-edge projects and make a meaningful impact within
-            dynamic, collaborative environments.
+            I build full-stack applications and practical AI tools, with recent work spanning study planning,
+            document question-answering, auction workflows, and Java web development. I am pursuing an MS in
+            Computer Science at the University of Alabama at Birmingham and expect to graduate in December 2026.
           </p>
           <p class="about-interest">Outside of software, I enjoy playing guitar.</p>
 
@@ -290,8 +289,100 @@
       </div>
 
       <!-- Work List -->
-      <p class="sr-only" id="filter-status" role="status" aria-live="polite"></p>
+      <p class="project-count" id="filter-status" role="status" aria-live="polite"></p>
       <div class="work-list">
+        <!-- Syllabus SOS -->
+        <article class="work" data-category="ai">
+          <div class="project-art project-art-syllabus" aria-hidden="true">
+            <i class="fas fa-book-open"></i>
+            <span>SYLLABUS SOS</span>
+            <small>Documents → study plan</small>
+          </div>
+          <div class="layer">
+            <p class="project-status">Public · Live app</p>
+            <h3>Syllabus SOS</h3>
+            <p>Turns course documents into a reviewable study plan, with source references and manual approval for extracted work.</p>
+            <p class="project-stack">React · FastAPI · Meta Muse Spark</p>
+            <div class="project-links">
+              <a href="https://github.com/IrshadAlam-dev/syllabus-sos" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github" aria-hidden="true"></i></a>
+              <a href="https://syllabus-sos.vercel.app/" target="_blank" rel="noopener noreferrer">Live app <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
+              <button class="case-study-button" type="button" data-project="syllabus" aria-label="Read Syllabus SOS case study">Case study</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Papertrail PDF Q&A -->
+        <article class="work" data-category="ai">
+          <div class="project-art project-art-papertrail" aria-hidden="true">
+            <i class="fas fa-file-pdf"></i>
+            <span>PAPERTRAIL</span>
+            <small>Ask · retrieve · cite</small>
+          </div>
+          <div class="layer">
+            <p class="project-status">Private repository</p>
+            <h3>Papertrail PDF Q&amp;A</h3>
+            <p>A local-first PDF question-answering app that retrieves relevant passages and shows page citations.</p>
+            <p class="project-stack">Python · SQLite · Apple Vision</p>
+            <div class="project-links">
+              <button class="case-study-button" type="button" data-project="papertrail" aria-label="Read Papertrail PDF Q and A case study">Case study</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- SPAROO -->
+        <article class="work" data-category="fullstack">
+          <div class="project-art project-art-sparoo" aria-hidden="true">
+            <i class="fas fa-gavel"></i>
+            <span>SPAROO</span>
+            <small>Auction workflows</small>
+          </div>
+          <div class="layer">
+            <p class="project-status">Private repository</p>
+            <h3>SPAROO Online Auction</h3>
+            <p>A full-stack auction system with timed listings, bid handling, admin review, and a demo-coin wallet.</p>
+            <p class="project-stack">React · Django REST · MongoDB</p>
+            <div class="project-links">
+              <button class="case-study-button" type="button" data-project="sparoo" aria-label="Read SPAROO Online Auction case study">Case study</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Alam Libaas -->
+        <article class="work" data-category="fullstack">
+          <div class="project-art project-art-libaas" aria-hidden="true">
+            <i class="fas fa-shopping-bag"></i>
+            <span>ALAM LIBAAS</span>
+            <small>Storefront prototype</small>
+          </div>
+          <div class="layer">
+            <p class="project-status">Private repository · Prototype</p>
+            <h3>Alam Libaas</h3>
+            <p>A clothing-store prototype with a database-backed catalog, session cart, and cash-on-delivery checkout.</p>
+            <p class="project-stack">Java · Spring Boot · Thymeleaf</p>
+            <div class="project-links">
+              <button class="case-study-button" type="button" data-project="libaas" aria-label="Read Alam Libaas case study">Case study</button>
+            </div>
+          </div>
+        </article>
+
+        <!-- Faith & Reflection -->
+        <article class="work" data-category="web">
+          <div class="project-art project-art-faith" aria-hidden="true">
+            <i class="fas fa-book"></i>
+            <span>FAITH &amp; REFLECTION</span>
+            <small>Local-first record book</small>
+          </div>
+          <div class="layer">
+            <p class="project-status">Private repository</p>
+            <h3>Faith &amp; Reflection</h3>
+            <p>A learning site and browser-local daily record book with summaries, search, backups, and recovery tools.</p>
+            <p class="project-stack">HTML · CSS · JavaScript</p>
+            <div class="project-links">
+              <button class="case-study-button" type="button" data-project="faith" aria-label="Read Faith and Reflection case study">Case study</button>
+            </div>
+          </div>
+        </article>
+
         <!-- ClipQuiz -->
         <article class="work" data-category="ai">
           <img src="images/ai-generator.avif" alt="Abstract AI-themed project artwork" loading="lazy" decoding="async" />
@@ -302,7 +393,7 @@
             <div class="project-links">
               <a href="https://github.com/IrshadAlam-dev/clipquiz" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github" aria-hidden="true"></i></a>
               <a href="https://opal.google/app/1VD_A4GF5WvSEHXLvcqS7ml8eiURBvBuN?shared" target="_blank" rel="noopener noreferrer">Live demo <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-              <button class="case-study-button" type="button" data-project="clipquiz">Case study</button>
+              <button class="case-study-button" type="button" data-project="clipquiz" aria-label="Read ClipQuiz case study">Case study</button>
             </div>
           </div>
         </article>
@@ -317,7 +408,7 @@
             <div class="project-links">
               <a href="https://github.com/IrshadAlam-dev/SparkLink" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github" aria-hidden="true"></i></a>
               <a href="https://sparklink-ten.vercel.app" target="_blank" rel="noopener noreferrer">Live demo <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
-              <button class="case-study-button" type="button" data-project="sparklink">Case study</button>
+              <button class="case-study-button" type="button" data-project="sparklink" aria-label="Read SparkLink case study">Case study</button>
             </div>
           </div>
         </article>
@@ -331,7 +422,7 @@
             <p class="project-stack">Java · Spring Boot · REST APIs</p>
             <div class="project-links">
               <a href="https://github.com/IrshadAlam-dev/theatre-management-system" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github" aria-hidden="true"></i></a>
-              <button class="case-study-button" type="button" data-project="theatre">Case study</button>
+              <button class="case-study-button" type="button" data-project="theatre" aria-label="Read Theatre Management System case study">Case study</button>
             </div>
           </div>
         </article>
@@ -349,7 +440,7 @@
             <p class="project-stack">Python · Tkinter · Local JSON storage</p>
             <div class="project-links">
               <a href="https://github.com/IrshadAlam-dev/python-virtual-assistant" target="_blank" rel="noopener noreferrer">Code <i class="fab fa-github" aria-hidden="true"></i></a>
-              <button class="case-study-button" type="button" data-project="assistant">Case study</button>
+              <button class="case-study-button" type="button" data-project="assistant" aria-label="Read Python Virtual Assistant case study">Case study</button>
             </div>
           </div>
         </article>
@@ -381,6 +472,7 @@
         <p id="modal-outcome"></p>
       </section>
     </div>
+    <p id="modal-note" class="modal-note" hidden>Source code for this project is in a private repository.</p>
     <a id="modal-link" class="btn" target="_blank" rel="noopener noreferrer">View project <i class="fas fa-arrow-up-right-from-square" aria-hidden="true"></i></a>
   </dialog>
 

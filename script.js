@@ -68,28 +68,49 @@ document.addEventListener('keydown', (event) => {
 const works = [...document.querySelectorAll('.work')];
 const filterButtons = [...document.querySelectorAll('.filter-btn')];
 const filterStatus = document.getElementById('filter-status');
+const searchInput = document.getElementById('project-search');
+const emptyState = document.getElementById('project-empty');
+const resetProjects = document.getElementById('reset-projects');
+let currentFilter = 'all';
 
-function showWorks(filter) {
+function updateWorks() {
+  const query = searchInput.value.trim().toLocaleLowerCase();
   let count = 0;
   works.forEach((work) => {
-    const visible = filter === 'all' || work.dataset.category === filter;
+    const matchesCategory = currentFilter === 'all' || work.dataset.category === currentFilter;
+    const matchesSearch = !query || `${work.textContent} ${work.dataset.category}`.toLocaleLowerCase().includes(query);
+    const visible = matchesCategory && matchesSearch;
     work.hidden = !visible;
     if (visible) count += 1;
   });
-  filterStatus.textContent = `Showing ${count} project${count === 1 ? '' : 's'}.`;
+  filterStatus.textContent = `Showing ${count} of ${works.length} project${works.length === 1 ? '' : 's'}.`;
+  emptyState.hidden = count !== 0;
 }
 
 filterButtons.forEach((button) => {
   button.addEventListener('click', () => {
+    currentFilter = button.dataset.filter;
     filterButtons.forEach((item) => {
       const active = item === button;
       item.classList.toggle('active', active);
       item.setAttribute('aria-pressed', String(active));
     });
-    showWorks(button.dataset.filter);
+    updateWorks();
   });
 });
-showWorks('all');
+searchInput.addEventListener('input', updateWorks);
+resetProjects.addEventListener('click', () => {
+  searchInput.value = '';
+  currentFilter = 'all';
+  filterButtons.forEach((item) => {
+    const active = item.dataset.filter === 'all';
+    item.classList.toggle('active', active);
+    item.setAttribute('aria-pressed', String(active));
+  });
+  updateWorks();
+  searchInput.focus();
+});
+updateWorks();
 
 const projects = {
   syllabus: {

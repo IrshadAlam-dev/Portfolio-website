@@ -278,6 +278,12 @@
     <div class="container">
       <p class="section-kicker">Selected work</p>
       <h2 class="sub-title">Projects</h2>
+      <p class="projects-intro">Explore applications across full-stack development, AI tools, web, and desktop.</p>
+
+      <div class="project-search">
+        <label for="project-search">Search projects</label>
+        <input id="project-search" type="search" placeholder="Try Java, PDF, React…" autocomplete="off" aria-controls="project-grid" />
+      </div>
 
       <!-- Filter Buttons -->
       <div class="filters" role="group" aria-label="Filter projects">
@@ -290,7 +296,8 @@
 
       <!-- Work List -->
       <p class="project-count" id="filter-status" role="status" aria-live="polite"></p>
-      <div class="work-list">
+      <p class="project-empty" id="project-empty" hidden>No projects match your search and filters. <button id="reset-projects" type="button">Show all projects</button></p>
+      <div class="work-list" id="project-grid">
         <!-- Syllabus SOS -->
         <article class="work" data-category="ai">
           <div class="project-art project-art-syllabus" aria-hidden="true">

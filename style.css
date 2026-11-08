@@ -93,10 +93,20 @@ main > section:nth-of-type(even) { background: #111720; }
 .services-list p { margin-bottom: 0; color: var(--muted); font-size: .92rem; }
 
 /* Project cards: all essential information is visible without hover */
-.filters { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.8rem 0 1.5rem; }
+.projects-intro { max-width: 42rem; margin-bottom: 1.5rem; color: var(--muted); }
+.project-search { max-width: 27rem; }
+.project-search label { display: block; margin-bottom: .45rem; color: var(--text); font-size: .88rem; font-weight: 700; }
+.project-search input { display: block; width: 100%; min-height: 3rem; padding: .65rem .9rem; border: 1px solid var(--border); border-radius: .55rem; background: var(--surface); color: var(--text); }
+.project-search input::placeholder { color: #aeb8c7; opacity: 1; }
+.project-search input:hover { border-color: #7d899b; }
+.project-search input:focus-visible { border-color: var(--accent); }
+.filters { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.25rem 0 1rem; }
 .filter-btn { min-height: 2.75rem; padding: .52rem .95rem; border: 1px solid var(--border); border-radius: 2rem; background: transparent; color: var(--muted); font-size: .88rem; font-weight: 700; }
 .filter-btn:hover, .filter-btn.active { border-color: var(--accent); background: var(--accent-strong); color: #fff; }
 .project-count { margin: 0 0 1rem; color: var(--muted); font-size: .88rem; }
+.project-empty { margin: 1rem 0; padding: 1rem 1.2rem; border: 1px solid var(--border); border-radius: .65rem; background: var(--surface); color: var(--muted); }
+.project-empty button { padding: 0; border: 0; background: none; color: #ff97b5; font-weight: 700; text-decoration: underline; text-underline-offset: .2rem; }
+.project-empty button:hover { color: #fff; }
 .work-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
 .work { min-width: 0; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
 .work > img, .assistant-art, .project-art { width: 100%; height: clamp(11rem, 20vw, 16rem); object-fit: cover; }

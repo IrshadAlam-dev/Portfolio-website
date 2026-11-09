@@ -109,7 +109,7 @@ main > section:nth-of-type(even) { background: #111720; }
 .project-empty button:hover { color: #fff; }
 .work-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
 .work { min-width: 0; overflow: hidden; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
-.work > img, .assistant-art, .project-art { width: 100%; height: clamp(11rem, 20vw, 16rem); object-fit: cover; }
+.project-art { width: 100%; height: clamp(11rem, 20vw, 16rem); }
 .project-art { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: .25rem; overflow: hidden; background: #202d3e; text-align: center; }
 .project-art::before { position: absolute; inset: 1.2rem; border: 1px solid #ffffff28; border-radius: .8rem; content: ""; }
 .project-art i { position: relative; margin-bottom: .45rem; color: #fff; font-size: 2.2rem; }
@@ -120,10 +120,10 @@ main > section:nth-of-type(even) { background: #111720; }
 .project-art-sparoo { background: linear-gradient(135deg, #443048, #653d56); }
 .project-art-libaas { background: linear-gradient(135deg, #44382d, #68513d); }
 .project-art-faith { background: linear-gradient(135deg, #244139, #31584c); }
-.assistant-art { display: grid; align-content: center; justify-items: center; gap: .55rem; background: radial-gradient(circle at 65% 25%, #913a643e, transparent 42%), linear-gradient(135deg, #18202e, #293146); }
-.assistant-art-orb { display: grid; width: 3.8rem; height: 3.8rem; place-items: center; border: 1px solid #ffffff48; border-radius: .9rem; color: var(--accent); font-size: 1.65rem; }
-.assistant-art-label { color: #d1d8e5; font-size: .67rem; font-weight: 700; letter-spacing: .14em; }
-.assistant-art-command { color: #fff; font: 600 .84rem/1.4 ui-monospace, SFMono-Regular, Menlo, monospace; }
+.project-art-clipquiz { background: linear-gradient(135deg, #283b61, #3a5274); }
+.project-art-sparklink { background: linear-gradient(135deg, #39416d, #58618a); }
+.project-art-theatre { background: linear-gradient(135deg, #4b2f3e, #704354); }
+.project-art-assistant { background: linear-gradient(135deg, #252e45, #3c4763); }
 .layer { display: flex; flex-direction: column; align-items: flex-start; min-height: 15.5rem; padding: 1.5rem; }
 .layer .project-status { margin-bottom: .6rem; color: #e2e7ef; font-size: .72rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
 .layer h3 { margin-bottom: .55rem; font-size: 1.4rem; }
@@ -202,7 +202,7 @@ form .btn2:disabled { cursor: wait; opacity: .7; }
   .hero-actions .btn { flex: 1 1 11rem; }
   .timeline-item { grid-template-columns: 1fr; gap: .2rem; padding-left: 1.5rem; }
   .services-list, .work-list, .modal-content { grid-template-columns: 1fr; }
-  .work > img, .assistant-art, .project-art { height: clamp(11rem, 48vw, 17rem); }
+  .project-art { height: clamp(11rem, 48vw, 17rem); }
   .layer { min-height: 0; }
   .project-modal { width: calc(100% - 1rem); max-height: calc(100dvh - 1rem); }
 }

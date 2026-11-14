@@ -86,11 +86,13 @@ main > section:nth-of-type(even) { background: #111720; }
 .timeline-link:hover { color: #fff; }
 
 /* Services */
-.services-list { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem; }
+.services-intro { max-width: 39rem; color: var(--muted); }
+.services-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin-top: 2rem; }
 .services-list > div { padding: 1.6rem; border: 1px solid var(--border); border-radius: var(--radius); background: var(--surface); }
 .services-list i { margin-bottom: 1.2rem; color: var(--accent); font-size: 1.55rem; }
 .services-list h3 { margin-bottom: .75rem; font-size: 1.22rem; }
 .services-list p { margin-bottom: 0; color: var(--muted); font-size: .92rem; }
+.services-list .service-examples { margin-top: 1rem; color: #ff97b5; font-size: .8rem; font-weight: 700; }
 
 /* Project cards: all essential information is visible without hover */
 .projects-intro { max-width: 42rem; margin-bottom: 1.5rem; color: var(--muted); }

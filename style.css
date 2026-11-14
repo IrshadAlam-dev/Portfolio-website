@@ -103,6 +103,8 @@ main > section:nth-of-type(even) { background: #111720; }
 .filters { display: flex; flex-wrap: wrap; gap: .5rem; margin: 1.25rem 0 1rem; }
 .filter-btn { min-height: 2.75rem; padding: .52rem .95rem; border: 1px solid var(--border); border-radius: 2rem; background: transparent; color: var(--muted); font-size: .88rem; font-weight: 700; }
 .filter-btn:hover, .filter-btn.active { border-color: var(--accent); background: var(--accent-strong); color: #fff; }
+.code-filter { display: inline-flex; align-items: center; gap: .6rem; min-height: 2.75rem; margin-bottom: 1rem; color: var(--text); font-size: .88rem; font-weight: 600; cursor: pointer; }
+.code-filter input { width: 1.15rem; height: 1.15rem; margin: 0; accent-color: var(--accent-strong); cursor: pointer; }
 .project-count { margin: 0 0 1rem; color: var(--muted); font-size: .88rem; }
 .project-empty { margin: 1rem 0; padding: 1rem 1.2rem; border: 1px solid var(--border); border-radius: .65rem; background: var(--surface); color: var(--muted); }
 .project-empty button { padding: 0; border: 0; background: none; color: #ff97b5; font-weight: 700; text-decoration: underline; text-underline-offset: .2rem; }

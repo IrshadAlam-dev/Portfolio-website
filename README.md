@@ -29,7 +29,7 @@ My portfolio highlights the projects I’ve worked on, the technologies I use, a
 
 - 📱 Fully Responsive (Mobile · Tablet · Desktop)
 - 🎯 Recruiter-Friendly Project Cards
-- 🔎 Project search and category filters
+- 🔎 Project search, category filters, and a public-code filter
 - ♿ Accessible & Semantic HTML
 - ⚡ Optimized Performance
 - 🎨 Modern UI with a Consistent Design System

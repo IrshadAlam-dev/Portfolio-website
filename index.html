@@ -305,13 +305,17 @@
         <button class="filter-btn" type="button" data-filter="ai" aria-pressed="false">AI</button>
         <button class="filter-btn" type="button" data-filter="desktop" aria-pressed="false">Desktop</button>
       </div>
+      <label class="code-filter" for="code-only">
+        <input id="code-only" type="checkbox" aria-controls="project-grid" />
+        Show projects with public code only
+      </label>
 
       <!-- Work List -->
       <p class="project-count" id="filter-status" role="status" aria-live="polite"></p>
       <p class="project-empty" id="project-empty" hidden>No projects match your search and filters. <button id="reset-projects" type="button">Show all projects</button></p>
       <div class="work-list" id="project-grid">
         <!-- Syllabus SOS -->
-        <article class="work" data-category="ai">
+        <article class="work" data-category="ai" data-visibility="public">
           <div class="project-art project-art-syllabus" aria-hidden="true">
             <i class="fas fa-book-open"></i>
             <span>SYLLABUS SOS</span>
@@ -331,7 +335,7 @@
         </article>
 
         <!-- Papertrail PDF Q&A -->
-        <article class="work" data-category="ai">
+        <article class="work" data-category="ai" data-visibility="private">
           <div class="project-art project-art-papertrail" aria-hidden="true">
             <i class="fas fa-file-pdf"></i>
             <span>PAPERTRAIL</span>
@@ -349,7 +353,7 @@
         </article>
 
         <!-- SPAROO -->
-        <article class="work" data-category="fullstack">
+        <article class="work" data-category="fullstack" data-visibility="private">
           <div class="project-art project-art-sparoo" aria-hidden="true">
             <i class="fas fa-gavel"></i>
             <span>SPAROO</span>
@@ -367,7 +371,7 @@
         </article>
 
         <!-- Alam Libaas -->
-        <article class="work" data-category="fullstack">
+        <article class="work" data-category="fullstack" data-visibility="private">
           <div class="project-art project-art-libaas" aria-hidden="true">
             <i class="fas fa-shopping-bag"></i>
             <span>ALAM LIBAAS</span>
@@ -385,7 +389,7 @@
         </article>
 
         <!-- Faith & Reflection -->
-        <article class="work" data-category="web">
+        <article class="work" data-category="web" data-visibility="private">
           <div class="project-art project-art-faith" aria-hidden="true">
             <i class="fas fa-book"></i>
             <span>FAITH &amp; REFLECTION</span>
@@ -403,7 +407,7 @@
         </article>
 
         <!-- ClipQuiz -->
-        <article class="work" data-category="ai">
+        <article class="work" data-category="ai" data-visibility="public">
           <div class="project-art project-art-clipquiz" aria-hidden="true">
             <i class="fas fa-play-circle"></i>
             <span>CLIPQUIZ</span>
@@ -423,7 +427,7 @@
         </article>
 
         <!-- SparkLink -->
-        <article class="work" data-category="web">
+        <article class="work" data-category="web" data-visibility="public">
           <div class="project-art project-art-sparklink" aria-hidden="true">
             <i class="fas fa-link"></i>
             <span>SPARKLINK</span>
@@ -443,7 +447,7 @@
         </article>
 
         <!-- Theatre Management System -->
-        <article class="work" data-category="fullstack">
+        <article class="work" data-category="fullstack" data-visibility="public">
           <div class="project-art project-art-theatre" aria-hidden="true">
             <i class="fas fa-theater-masks"></i>
             <span>THEATRE MANAGEMENT</span>
@@ -462,7 +466,7 @@
         </article>
 
         <!-- Python Virtual Assistant -->
-        <article class="work work-python" data-category="desktop">
+        <article class="work work-python" data-category="desktop" data-visibility="public">
           <div class="project-art project-art-assistant" aria-hidden="true">
             <i class="fas fa-terminal"></i>
             <span>PYTHON ASSISTANT</span>

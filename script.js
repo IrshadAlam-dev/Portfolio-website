@@ -69,6 +69,7 @@ const works = [...document.querySelectorAll('.work')];
 const filterButtons = [...document.querySelectorAll('.filter-btn')];
 const filterStatus = document.getElementById('filter-status');
 const searchInput = document.getElementById('project-search');
+const codeOnly = document.getElementById('code-only');
 const emptyState = document.getElementById('project-empty');
 const resetProjects = document.getElementById('reset-projects');
 let currentFilter = 'all';
@@ -78,8 +79,9 @@ function updateWorks() {
   let count = 0;
   works.forEach((work) => {
     const matchesCategory = currentFilter === 'all' || work.dataset.category === currentFilter;
+    const matchesCode = !codeOnly.checked || work.dataset.visibility === 'public';
     const matchesSearch = !query || `${work.textContent} ${work.dataset.category}`.toLocaleLowerCase().includes(query);
-    const visible = matchesCategory && matchesSearch;
+    const visible = matchesCategory && matchesCode && matchesSearch;
     work.hidden = !visible;
     if (visible) count += 1;
   });
@@ -99,8 +101,10 @@ filterButtons.forEach((button) => {
   });
 });
 searchInput.addEventListener('input', updateWorks);
+codeOnly.addEventListener('change', updateWorks);
 resetProjects.addEventListener('click', () => {
   searchInput.value = '';
+  codeOnly.checked = false;
   currentFilter = 'all';
   filterButtons.forEach((item) => {
     const active = item.dataset.filter === 'all';

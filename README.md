@@ -77,7 +77,7 @@ Featured projects include:
 - **Theatre Management System** — a Java and Spring Boot application for show and booking management.
 - **Python Virtual Assistant** — a Python desktop assistant with local tasks, notes, reminders, a Tkinter dashboard, and optional voice input/output.
 
-Each featured project also includes an in-page case study covering the challenge, approach, technology stack, and outcome.
+Each featured project also includes a shareable in-page case study covering the challenge, approach, technology stack, and outcome.
 Private projects are presented as summaries without links to their source code.
 
 ---

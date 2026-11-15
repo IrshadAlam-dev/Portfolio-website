@@ -204,25 +204,72 @@ const projectModal = document.getElementById('project-modal');
 const modalClose = projectModal.querySelector('.modal-close');
 const modalLink = document.getElementById('modal-link');
 const modalNote = document.getElementById('modal-note');
+const copyProjectLink = document.getElementById('copy-project-link');
+const projectLinkStatus = document.getElementById('project-link-status');
+let previousProjectUrl = null;
+let projectTrigger = null;
+let activeProjectKey = null;
+
+function projectKeyFromUrl() {
+  const key = window.location.hash.slice('#project-'.length);
+  return window.location.hash.startsWith('#project-') && Object.hasOwn(projects, key) ? key : null;
+}
+
+function showProject(key) {
+  const project = projects[key];
+  if (!project) return;
+  activeProjectKey = key;
+  projectLinkStatus.textContent = '';
+  for (const field of ['category', 'title', 'challenge', 'solution', 'stack', 'outcome']) {
+    document.getElementById(`modal-${field}`).textContent = project[field];
+  }
+  modalLink.hidden = !project.link;
+  modalNote.hidden = Boolean(project.link);
+  if (project.link) modalLink.href = project.link;
+  else modalLink.removeAttribute('href');
+  if (!projectModal.open) projectModal.showModal();
+  modalClose.focus();
+}
+
+function syncProjectModal() {
+  const key = projectKeyFromUrl();
+  if (key) showProject(key);
+  else if (projectModal.open) projectModal.close();
+}
+
 document.querySelectorAll('.case-study-button').forEach((button) => {
   button.addEventListener('click', () => {
-    const project = projects[button.dataset.project];
-    if (!project) return;
-    for (const field of ['category', 'title', 'challenge', 'solution', 'stack', 'outcome']) {
-      document.getElementById(`modal-${field}`).textContent = project[field];
-    }
-    modalLink.hidden = !project.link;
-    modalNote.hidden = Boolean(project.link);
-    if (project.link) modalLink.href = project.link;
-    else modalLink.removeAttribute('href');
-    projectModal.showModal();
-    modalClose.focus();
+    if (!Object.hasOwn(projects, button.dataset.project)) return;
+    previousProjectUrl = window.location.href;
+    projectTrigger = button;
+    window.history.pushState(null, '', `#project-${button.dataset.project}`);
+    syncProjectModal();
   });
 });
 modalClose.addEventListener('click', () => projectModal.close());
 projectModal.addEventListener('click', (event) => {
   if (event.target === projectModal) projectModal.close();
 });
+projectModal.addEventListener('close', () => {
+  if (projectKeyFromUrl()) window.history.replaceState(null, '', previousProjectUrl || '#portfolio');
+  const returnButton = projectTrigger || document.querySelector(`.case-study-button[data-project="${activeProjectKey}"]`);
+  if (returnButton && !returnButton.closest('[hidden]')) returnButton.focus();
+  previousProjectUrl = null;
+  projectTrigger = null;
+  activeProjectKey = null;
+  projectLinkStatus.textContent = '';
+});
+window.addEventListener('popstate', syncProjectModal);
+window.addEventListener('hashchange', syncProjectModal);
+copyProjectLink.addEventListener('click', async () => {
+  try {
+    await navigator.clipboard.writeText(window.location.href);
+    projectLinkStatus.textContent = 'Case study link copied.';
+  } catch {
+    projectLinkStatus.textContent = 'Copy unavailable here. Use the link in your address bar.';
+  }
+});
+syncProjectModal();
 
 const contactForm = document.getElementById('contact-form');
 const contactSubmit = document.getElementById('contact-submit');

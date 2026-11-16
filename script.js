@@ -246,6 +246,17 @@ document.querySelectorAll('.case-study-button').forEach((button) => {
     syncProjectModal();
   });
 });
+document.querySelectorAll('.service-examples a[href^="#project-"]').forEach((link) => {
+  link.addEventListener('click', (event) => {
+    const key = link.hash.slice('#project-'.length);
+    if (!Object.hasOwn(projects, key)) return;
+    event.preventDefault();
+    previousProjectUrl = window.location.href;
+    projectTrigger = link;
+    window.history.pushState(null, '', link.hash);
+    syncProjectModal();
+  });
+});
 modalClose.addEventListener('click', () => projectModal.close());
 projectModal.addEventListener('click', (event) => {
   if (event.target === projectModal) projectModal.close();

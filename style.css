@@ -92,7 +92,9 @@ main > section:nth-of-type(even) { background: #111720; }
 .services-list i { margin-bottom: 1.2rem; color: var(--accent); font-size: 1.55rem; }
 .services-list h3 { margin-bottom: .75rem; font-size: 1.22rem; }
 .services-list p { margin-bottom: 0; color: var(--muted); font-size: .92rem; }
-.services-list .service-examples { margin-top: 1rem; color: #ff97b5; font-size: .8rem; font-weight: 700; }
+.services-list .service-examples { margin-top: 1rem; color: #ff97b5; font-size: .85rem; font-weight: 700; }
+.service-examples a { padding-block: .15rem; text-decoration-thickness: .08em; text-underline-offset: .2rem; }
+.service-examples a:hover { color: #fff; }
 
 /* Project cards: all essential information is visible without hover */
 .projects-intro { max-width: 42rem; margin-bottom: 1.5rem; color: var(--muted); }

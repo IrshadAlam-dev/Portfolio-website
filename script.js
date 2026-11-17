@@ -62,7 +62,24 @@ menuClose.addEventListener('click', () => setMenuOpen(false, true));
 menuBackdrop.addEventListener('click', () => setMenuOpen(false, true));
 sideMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
 document.addEventListener('keydown', (event) => {
-  if (event.key === 'Escape' && sideMenu.classList.contains('is-open')) setMenuOpen(false, true);
+  if (!sideMenu.classList.contains('is-open')) return;
+  if (event.key === 'Escape') {
+    setMenuOpen(false, true);
+    return;
+  }
+  if (event.key !== 'Tab') return;
+
+  const menuControls = [...sideMenu.querySelectorAll('a, button')].filter((item) => item.getClientRects().length);
+  const first = menuControls[0];
+  const last = menuControls.at(-1);
+  if (!first || !last) return;
+  if (event.shiftKey && (document.activeElement === first || !sideMenu.contains(document.activeElement))) {
+    event.preventDefault();
+    last.focus();
+  } else if (!event.shiftKey && (document.activeElement === last || !sideMenu.contains(document.activeElement))) {
+    event.preventDefault();
+    first.focus();
+  }
 });
 
 const works = [...document.querySelectorAll('.work')];

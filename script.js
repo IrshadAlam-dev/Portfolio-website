@@ -95,7 +95,7 @@ function updateWorks() {
   const query = searchInput.value.trim().toLocaleLowerCase();
   let count = 0;
   works.forEach((work) => {
-    const matchesCategory = currentFilter === 'all' || work.dataset.category === currentFilter;
+    const matchesCategory = currentFilter === 'all' || work.dataset.category.split(' ').includes(currentFilter);
     const matchesCode = !codeOnly.checked || work.dataset.visibility === 'public';
     const matchesSearch = !query || `${work.textContent} ${work.dataset.category}`.toLocaleLowerCase().includes(query);
     const visible = matchesCategory && matchesCode && matchesSearch;

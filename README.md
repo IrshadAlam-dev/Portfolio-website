@@ -68,13 +68,13 @@ The contact form sends messages through Formspree; test it with a real submissio
 Featured projects include:
 
 - **[Syllabus SOS](https://irshadalam-dev.github.io/Portfolio-website/#project-syllabus)** — a React and FastAPI study-planning tool with reviewable AI extraction and a live app.
+- **[SparkLink](https://irshadalam-dev.github.io/Portfolio-website/#project-sparklink)** — a React, Supabase, and Tailwind CSS link-in-bio builder.
 - **[Papertrail PDF Q&A](https://irshadalam-dev.github.io/Portfolio-website/#project-papertrail)** — a local-first PDF question-answering tool with page citations (private repository).
+- **[Theatre Management System](https://irshadalam-dev.github.io/Portfolio-website/#project-theatre)** — a Java and Spring Boot application for show and booking management.
 - **[SPAROO Online Auction](https://irshadalam-dev.github.io/Portfolio-website/#project-sparoo)** — a React, Django REST, and MongoDB auction system using demo coins (private repository).
+- **[ClipQuiz](https://irshadalam-dev.github.io/Portfolio-website/#project-clipquiz)** — a no-code AI tool that turns YouTube videos into personalized quizzes.
 - **[Alam Libaas](https://irshadalam-dev.github.io/Portfolio-website/#project-libaas)** — a Spring Boot clothing-store prototype (private repository).
 - **[Faith & Reflection](https://irshadalam-dev.github.io/Portfolio-website/#project-faith)** — a browser-local learning and daily-record site (private repository).
-- **[ClipQuiz](https://irshadalam-dev.github.io/Portfolio-website/#project-clipquiz)** — a no-code AI tool that turns YouTube videos into personalized quizzes.
-- **[SparkLink](https://irshadalam-dev.github.io/Portfolio-website/#project-sparklink)** — a React, Supabase, and Tailwind CSS link-in-bio builder.
-- **[Theatre Management System](https://irshadalam-dev.github.io/Portfolio-website/#project-theatre)** — a Java and Spring Boot application for show and booking management.
 - **[Python Virtual Assistant](https://irshadalam-dev.github.io/Portfolio-website/#project-assistant)** — a Python desktop assistant with local tasks, notes, reminders, a Tkinter dashboard, and optional voice input/output.
 
 Each featured project also includes a shareable in-page case study covering the challenge, approach, technology stack, and outcome.

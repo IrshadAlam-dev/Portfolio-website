@@ -141,7 +141,9 @@ const projects = {
     solution: 'Built a document-to-plan flow that extracts likely work, shows supporting references, and lets students review, edit, approve, or reject items before planning.',
     stack: 'React, FastAPI, PyMuPDF, Meta Muse Spark',
     outcome: 'Students can organize approved work in weekly and calendar views. Extracted dates still require human verification, especially for images.',
-    link: 'https://syllabus-sos.vercel.app/'
+    link: 'https://syllabus-sos.vercel.app/',
+    linkLabel: 'Open live app',
+    codeLink: 'https://github.com/IrshadAlam-dev/syllabus-sos'
   },
   papertrail: {
     category: 'Local-first document tool',
@@ -186,7 +188,9 @@ const projects = {
     solution: 'Built a no-code flow that turns YouTube videos into personalized quizzes, smart feedback, and rewatch guidance.',
     stack: 'Google Opal',
     outcome: 'Creates a more active way to check understanding after watching a video.',
-    link: 'https://opal.google/app/1VD_A4GF5WvSEHXLvcqS7ml8eiURBvBuN?shared'
+    link: 'https://opal.google/app/1VD_A4GF5WvSEHXLvcqS7ml8eiURBvBuN?shared',
+    linkLabel: 'Open live demo',
+    codeLink: 'https://github.com/IrshadAlam-dev/clipquiz'
   },
   sparklink: {
     category: 'Full-stack web application',
@@ -195,7 +199,9 @@ const projects = {
     solution: 'Developed a link-in-bio builder with magic-link access, drag-and-drop editing, and customizable glassmorphism themes.',
     stack: 'React, Supabase, Tailwind CSS',
     outcome: 'Provides a polished, self-managed profile page with a live deployed demo.',
-    link: 'https://sparklink-ten.vercel.app'
+    link: 'https://sparklink-ten.vercel.app',
+    linkLabel: 'Open live demo',
+    codeLink: 'https://github.com/IrshadAlam-dev/SparkLink'
   },
   theatre: {
     category: 'Java full-stack application',
@@ -204,7 +210,8 @@ const projects = {
     solution: 'Built a Spring Boot application for browsing shows, reserving seats, managing bookings, and tracking cash payments.',
     stack: 'Java, Spring Boot, Hibernate, MySQL, REST APIs',
     outcome: 'Demonstrates entity relationships, CRUD APIs, and database-backed booking workflows.',
-    link: 'https://github.com/IrshadAlam-dev/theatre-management-system'
+    link: 'https://github.com/IrshadAlam-dev/theatre-management-system',
+    linkLabel: 'View code'
   },
   assistant: {
     category: 'Python desktop application',
@@ -213,13 +220,16 @@ const projects = {
     solution: 'Built a Python assistant with typed commands, local task and reminder persistence, notes, weather and news lookups, plus a Tkinter dashboard and optional voice input/output.',
     stack: 'Python, Tkinter, JSON, SpeechRecognition, pyttsx3',
     outcome: 'Core local task and note workflows work without API keys, with optional voice and network-powered lookups.',
-    link: 'https://github.com/IrshadAlam-dev/python-virtual-assistant'
+    link: 'https://github.com/IrshadAlam-dev/python-virtual-assistant',
+    linkLabel: 'View code'
   }
 };
 
 const projectModal = document.getElementById('project-modal');
 const modalClose = projectModal.querySelector('.modal-close');
 const modalLink = document.getElementById('modal-link');
+const modalLinkLabel = document.getElementById('modal-link-label');
+const modalCodeLink = document.getElementById('modal-code-link');
 const modalNote = document.getElementById('modal-note');
 const copyProjectLink = document.getElementById('copy-project-link');
 const projectLinkStatus = document.getElementById('project-link-status');
@@ -241,9 +251,15 @@ function showProject(key) {
     document.getElementById(`modal-${field}`).textContent = project[field];
   }
   modalLink.hidden = !project.link;
-  modalNote.hidden = Boolean(project.link);
-  if (project.link) modalLink.href = project.link;
+  modalCodeLink.hidden = !project.codeLink || project.codeLink === project.link;
+  modalNote.hidden = Boolean(project.link || project.codeLink);
+  if (project.link) {
+    modalLink.href = project.link;
+    modalLinkLabel.textContent = project.linkLabel || 'View project';
+  }
   else modalLink.removeAttribute('href');
+  if (project.codeLink) modalCodeLink.href = project.codeLink;
+  else modalCodeLink.removeAttribute('href');
   if (!projectModal.open) projectModal.showModal();
   modalClose.focus();
 }

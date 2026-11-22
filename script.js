@@ -40,6 +40,7 @@ function setMenuOpen(open, restoreFocus = false) {
   sideMenu.classList.toggle('is-open', open);
   menuBackdrop.classList.toggle('is-open', open);
   menuToggle.setAttribute('aria-expanded', String(open));
+  menuToggle.setAttribute('aria-label', open ? 'Close navigation menu' : 'Open navigation menu');
   sideMenu.inert = mobileMenu.matches && !open;
   menuBackdrop.inert = !open;
   document.body.classList.toggle('menu-open', open);

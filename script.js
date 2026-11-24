@@ -98,7 +98,7 @@ function updateWorks() {
   works.forEach((work) => {
     const matchesCategory = currentFilter === 'all' || work.dataset.category.split(' ').includes(currentFilter);
     const matchesCode = !codeOnly.checked || work.dataset.visibility === 'public';
-    const matchesSearch = !query || `${work.textContent} ${work.dataset.category}`.toLocaleLowerCase().includes(query);
+    const matchesSearch = !query || work.dataset.search.includes(query);
     const visible = matchesCategory && matchesCode && matchesSearch;
     work.hidden = !visible;
     if (visible) count += 1;
@@ -132,8 +132,6 @@ resetProjects.addEventListener('click', () => {
   updateWorks();
   searchInput.focus();
 });
-updateWorks();
-
 const projects = {
   syllabus: {
     category: 'AI academic planning tool',
@@ -225,6 +223,20 @@ const projects = {
     linkLabel: 'View code'
   }
 };
+
+works.forEach((work) => {
+  const key = work.querySelector('.case-study-button')?.dataset.project;
+  const project = projects[key];
+  work.dataset.search = [
+    work.textContent,
+    work.dataset.category,
+    project?.challenge,
+    project?.solution,
+    project?.stack,
+    project?.outcome
+  ].filter(Boolean).join(' ').toLocaleLowerCase();
+});
+updateWorks();
 
 const projectModal = document.getElementById('project-modal');
 const modalClose = projectModal.querySelector('.modal-close');

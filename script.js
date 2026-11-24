@@ -331,26 +331,33 @@ syncProjectModal();
 const contactForm = document.getElementById('contact-form');
 const contactSubmit = document.getElementById('contact-submit');
 const formStatus = document.getElementById('form-status');
+const formEmailFallback = document.getElementById('form-email-fallback');
 contactForm.addEventListener('submit', async (event) => {
   event.preventDefault();
   contactSubmit.disabled = true;
   contactSubmit.textContent = 'Sending…';
   formStatus.textContent = '';
   formStatus.className = 'form-status';
+  formEmailFallback.hidden = true;
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 12000);
   try {
     const response = await fetch(contactForm.action, {
       method: 'POST',
       body: new FormData(contactForm),
-      headers: { Accept: 'application/json' }
+      headers: { Accept: 'application/json' },
+      signal: controller.signal
     });
     if (!response.ok) throw new Error('Message could not be sent.');
     contactForm.reset();
     formStatus.textContent = 'Thanks — your message has been sent.';
     formStatus.classList.add('is-success');
   } catch {
-    formStatus.textContent = 'Something went wrong. Please email me directly instead.';
+    formStatus.textContent = 'Your message was not sent. Your text is still here, and you can reach me by email.';
     formStatus.classList.add('is-error');
+    formEmailFallback.hidden = false;
   } finally {
+    clearTimeout(timeout);
     contactSubmit.disabled = false;
     contactSubmit.textContent = 'Send message';
   }

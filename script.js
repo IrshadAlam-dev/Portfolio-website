@@ -45,8 +45,9 @@ function setMenuOpen(open, restoreFocus = false) {
   menuBackdrop.inert = !open;
   document.body.classList.toggle('menu-open', open);
   if (open) {
-    // Move focus after the click's default focus behavior completes.
-    setTimeout(() => menuClose.focus(), 0);
+    requestAnimationFrame(() => {
+      if (sideMenu.classList.contains('is-open')) menuClose.focus();
+    });
   }
   else if (restoreFocus) menuToggle.focus();
 }
@@ -61,7 +62,14 @@ mobileMenu.addEventListener('change', syncMenu);
 menuToggle.addEventListener('click', () => setMenuOpen(true));
 menuClose.addEventListener('click', () => setMenuOpen(false, true));
 menuBackdrop.addEventListener('click', () => setMenuOpen(false, true));
-sideMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => setMenuOpen(false)));
+sideMenu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => {
+  setMenuOpen(false);
+  if (!mobileMenu.matches) return;
+  const destination = document.getElementById(link.hash.slice(1))?.querySelector('h1, h2');
+  if (!destination) return;
+  destination.tabIndex = -1;
+  requestAnimationFrame(() => destination.focus({ preventScroll: true }));
+}));
 document.addEventListener('keydown', (event) => {
   if (!sideMenu.classList.contains('is-open')) return;
   if (event.key === 'Escape') {

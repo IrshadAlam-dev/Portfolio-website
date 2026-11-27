@@ -55,6 +55,13 @@ python3 -m http.server 8765
 
 Open `http://localhost:8765/`. A local server is preferable to opening `index.html` with a `file://` URL, particularly when testing the contact form and browser behavior.
 
+Before publishing, check the JavaScript and local links:
+
+```sh
+node --check script.js
+node scripts/check-site.mjs
+```
+
 ## Deploy
 
 Changes pushed to the `main` branch trigger `.github/workflows/static.yml`, which publishes the repository to GitHub Pages. The same workflow can be started manually from the GitHub Actions tab. Verify the deployed site at the live URL above after the workflow succeeds.

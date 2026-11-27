@@ -50,6 +50,8 @@ jobs:
           for attempt in {1..12}; do
             if gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/artifacts" \
               --jq '.artifacts[] | select(.name == "github-pages" and .expired == false) | .id' | grep -q .; then
+              # The Pages deployment service can lag behind the Actions artifact list.
+              sleep 15
               exit 0
             fi
             sleep 5
